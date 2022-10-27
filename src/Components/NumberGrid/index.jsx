@@ -2,7 +2,7 @@ import NumberButton from "../NumberButton";
 
 export default function NumberGrid(props) {
     return (
-        <div className='grid grid-cols-7 grid-rows-3 gap-8'>
+        <div className='grid md:grid-cols-7 md:grid-rows-3 grid-cols-3 grid-rows-[7] gap-8'>
             <NumberButton symbol='7' />
             <NumberButton symbol='8' />
             <NumberButton symbol='9' />
