@@ -1,5 +1,6 @@
 import NumberGrid from "./Components/NumberGrid"
 import ChocolatorDiv from "./Components/ChocolatorBigDiv"
+import GreenOutput from "./Components/GreenOutput"
 
 export default function App() {
   return (
@@ -9,6 +10,9 @@ export default function App() {
       </div>
       <div>
         <ChocolatorDiv />
+      </div>
+      <div>
+        <GreenOutput />
       </div>
     </div>
   )

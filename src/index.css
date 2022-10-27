@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#greengradient {
+    background: repeating-linear-gradient(-55deg,
+            #00bd22,
+            #00bd22 20px,
+            #2caf1e 20px,
+            #2caf1e 40px);
+}
