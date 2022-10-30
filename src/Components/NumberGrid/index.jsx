@@ -7,7 +7,7 @@ export default function NumberGrid(props) {
             <NumberButton symbol='8' />
             <NumberButton symbol='9' />
             <NumberButton symbol='0' />
-            <NumberButton symbol='X' />
+            <NumberButton symbol='*' />
             <NumberButton symbol='' />
             <NumberButton symbol='' />
             <NumberButton symbol='4' />

@@ -3,7 +3,7 @@ import img from './1051377.png';
 export default function Credits(props) {
     return (<div className='flex gap-12'>
         <div className='flex items-center'>
-            <div className='text-lg'>
+            <div className='text-lg text-left'>
                 made by emoral435
             </div>
         </div>
