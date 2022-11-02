@@ -49,9 +49,67 @@ export default function NumberButton(props) {
 
     const isEquals = () => {
         const bottomText = document.querySelector('#bottomNum');
+        const topText = document.querySelector('#topNum');
         const operationSymbol = ['*', '-', '+', '/'];
-        if (bottomText.textContent.charaAt(0)) {
+        const userEquation = bottomText.textContent.split(' ');
+        cleanArray(userEquation, '')
+        if (operationSymbol.includes(userEquation[0])) {
+            continuingEquation(userEquation)
+        } else {
+            newEquation(userEquation)
+        }
+    }
 
+    const doEquation = (operationsArray) => {
+        while (operationsArray.length > 2) {
+            let temp;
+            if (operationsArray[1] === '+') {
+                temp = parseFloat(operationsArray[0]) + parseFloat(operationsArray[2]);
+            } else if (operationsArray[1] === '-') {
+                temp = parseFloat(operationsArray[0]) - parseFloat(operationsArray[2]);
+            } else if (operationsArray[1] === '/') {
+                temp = parseFloat(operationsArray[0]) / parseFloat(operationsArray[2]);
+            } else if (operationsArray[1] === '*') {
+                temp = parseFloat(operationsArray[0]) * parseFloat(operationsArray[2]);
+            }
+            operationsArray.splice(0, 3);
+            operationsArray.unshift(temp);
+        }
+    }
+
+    const continuingEquation = (operationsArray) => {
+        const bottomText = document.querySelector('#bottomNum');
+        const topText = document.querySelector('#topNum');
+        operationsArray.unshift(topText.textContent)
+        doEquation(operationsArray);
+        bottomText.textContent = ''
+        if (operationsArray[0] === Infinity) {
+            topText.textContent = `You can't divide by zero! Refresh the Chocolator`
+        } else {
+            topText.textContent = `${operationsArray[0].toFixed(1)}`
+        }
+    }
+
+    const newEquation = (operationsArray) => {
+        const bottomText = document.querySelector('#bottomNum');
+        const topText = document.querySelector('#topNum');
+        doEquation(operationsArray);
+        bottomText.textContent = ''
+        if (operationsArray[0] === Infinity) {
+            topText.textContent = `You can't divide by zero! Refresh the Chocolator`
+        } else {
+            topText.textContent = `${operationsArray[0].toFixed(1)}`
+        }
+    }
+
+    const cleanArray = (array, remove) => {
+        let i = 0;
+        while (i < array.length) {
+            if (array[i] === remove) {
+                array.splice(i, 1);
+            } else {
+                i++;
+            }
         }
     }
 
